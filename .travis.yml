@@ -1,0 +1,6 @@
+arch:
+	- ppc64le
+	- amd64
+script:
+	- echo "Travis works - midnight"
+	- arch
