@@ -1,3 +1,14 @@
-arch: ppc64le
+os: linux
+arch:
+ - amd64
+ - ppc64le
+ 
+language: java
+
+addon:
+  apt: 
+    packages:
+      - maven
+      
 script:
-  - echo "midnight"
+ - mvn --version
