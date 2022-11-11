@@ -1,14 +1,18 @@
-os: linux
 arch:
- - amd64
- - ppc64le
- 
+  - amd64
+  - ppc64le
 language: java
+services:
+  - docker
 
 addon:
-  apt: 
+  apt:
     packages:
       - maven
-      
+
+before_install:
+  - docker pull alpine
 script:
- - mvn --version
+  - docker run -d alpine
+  - docker ps -a
+  - mvn --version
