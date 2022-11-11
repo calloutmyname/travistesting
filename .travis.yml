@@ -1,26 +1,18 @@
+arch: ppc64le
+os: linux
 dist: xenial
-language: ruby
-rvm:
-  - 2.5.7
-  - 2.6.5
-cache:
-  bundler: true
-matrix:
-  fast_finish: true
-addons:
-  postgresql: "10"
-before_install:
-  - source tools/ci/before_install.sh
-before_script:
-  - bundle exec rake test:setup
+language: node_js
+install:
+ - echo "install stage"
 script:
-  - bundle exec rake test:$TEST_SUITE
+ - echo "hello"
+before_install:
+ - echo "before install phase"
+before_script:
+ - echo "before script phase"
+after_script:
+ - echo "after script phase"
+after_success:
+ - echo "script ran successfully!"
 after_failure:
-  - source /tools/ci/after_failure.sh
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/7af45001fe6b7a4039f2
-    on_success: change
-    on_failure: always
-    on_start: never
+ - echo "script failed!"
