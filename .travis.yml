@@ -1,4 +1,7 @@
 os: linux
-arch: ppc64le
+arch:
+  - amd64
+  - ppc64le
+
 script:
-  - echo "this build works on PPC64LE with TravisCI+Github"
+  - echo "works on both ppc64le and amd64"
