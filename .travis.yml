@@ -3,16 +3,16 @@ os: linux
 dist: xenial
 language: node_js
 install:
- - echo "install stage"
+  - echo "install stage"
 script:
- - echo "hello"
+  - echo "hello"
 before_install:
- - echo "before install phase"
+  - echo "before install phase"
 before_script:
- - echo "before script phase"
+  - echo "before script phase"
 after_script:
- - echo "after script phase"
+  - echo "after script phase"
 after_success:
- - echo "script ran successfully!"
+  - echo "script ran successfully!"
 after_failure:
- - echo "script failed!"
+  - echo "script failed!"
