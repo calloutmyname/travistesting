@@ -1,7 +1,26 @@
-os: linux
-arch:
-  - amd64
-  - ppc64le
-
+dist: xenial
+language: ruby
+rvm:
+  - 2.5.7
+  - 2.6.5
+cache:
+  bundler: true
+matrix:
+  fast_finish: true
+addons:
+  postgresql: "10"
+before_install:
+  - source tools/ci/before_install.sh
+before_script:
+  - bundle exec rake test:setup
 script:
-  - echo "works on both ppc64le and amd64"
+  - bundle exec rake test:$TEST_SUITE
+after_failure:
+  - source /tools/ci/after_failure.sh
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/7af45001fe6b7a4039f2
+    on_success: change
+    on_failure: always
+    on_start: never
